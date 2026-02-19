@@ -1,9 +1,12 @@
-import { projects } from '@/lib/data'
-import SectionHeader from '@/components/ui/SectionHeader'
+import { projects } from "@/lib/data";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative min-h-screen px-8 md:px-16 py-32 bg-bg">
+    <section
+      id="projects"
+      className="relative min-h-screen px-8 md:px-16 py-32 bg-bg"
+    >
       <SectionHeader num="02" title="Proyectos" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -26,9 +29,13 @@ export default function Projects() {
               </a>
             )}
 
-            <div className="text-muted text-[0.65rem] tracking-[0.15em] mb-4">{p.num}</div>
+            <div className="text-muted text-[0.65rem] tracking-[0.15em] mb-4">
+              {p.num}
+            </div>
             <h3 className="font-syne font-bold text-xl mb-3">{p.title}</h3>
-            <p className="text-muted text-sm leading-relaxed mb-6">{p.description}</p>
+            <p className="text-muted text-sm leading-relaxed mb-6">
+              {p.description}
+            </p>
 
             <div className="flex flex-wrap gap-2">
               {p.tags.map((tag) => (
@@ -44,5 +51,5 @@ export default function Projects() {
         ))}
       </div>
     </section>
-  )
+  );
 }

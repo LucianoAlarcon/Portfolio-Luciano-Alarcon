@@ -1,8 +1,8 @@
-import { siteConfig } from '@/lib/data'
+import { siteConfig } from "@/lib/data";
 
 export default function Hero() {
-  const [firstName, ...rest] = siteConfig.name.split(' ')
-  const lastName = rest.join(' ') || 'Nombre'
+  const [firstName, ...rest] = siteConfig.name.split(" ");
+  const lastName = rest.join(" ") || "Nombre";
 
   return (
     <section
@@ -14,15 +14,20 @@ export default function Hero() {
         className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
           backgroundImage:
-            'linear-gradient(#1e2a38 1px, transparent 1px), linear-gradient(90deg, #1e2a38 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-          maskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%)',
+            "linear-gradient(#1e2a38 1px, transparent 1px), linear-gradient(90deg, #1e2a38 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+          maskImage:
+            "radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%)",
         }}
       />
 
       {/* Glow */}
-      <div className="absolute w-[600px] h-[600px] rounded-full pointer-events-none top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2"
-        style={{ background: 'radial-gradient(circle, rgba(0,229,195,0.07) 0%, transparent 70%)' }}
+      <div
+        className="absolute w-[600px] h-[600px] rounded-full pointer-events-none top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(0,229,195,0.07) 0%, transparent 70%)",
+        }}
       />
 
       {/* Available badge */}
@@ -33,8 +38,9 @@ export default function Hero() {
       )}
 
       {/* Name */}
-      <h1 className="relative z-10 font-syne font-black leading-[0.95] tracking-[-0.04em] mb-6 opacity-0 animate-fade-up-2"
-        style={{ fontSize: 'clamp(3.5rem, 8vw, 7rem)' }}
+      <h1
+        className="relative z-10 font-syne font-black leading-[0.95] tracking-[-0.04em] mb-6 opacity-0 animate-fade-up-2"
+        style={{ fontSize: "clamp(3.5rem, 8vw, 7rem)" }}
       >
         {firstName}
         <br />
@@ -70,5 +76,5 @@ export default function Hero() {
         Scroll para explorar
       </div>
     </section>
-  )
+  );
 }
