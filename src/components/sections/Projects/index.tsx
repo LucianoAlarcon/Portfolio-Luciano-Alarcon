@@ -1,13 +1,18 @@
+"use client";
+
 import { projects } from "@/lib/data";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { useTranslations } from "next-intl";
 
 export default function Projects() {
+  const t = useTranslations("projects");
+
   return (
     <section
       id="projects"
       className="relative min-h-screen px-8 md:px-16 py-32 bg-bg"
     >
-      <SectionHeader num="02" title="Proyectos" />
+      <SectionHeader num="02" title={t("sectionTitle")} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((p) => (
@@ -23,20 +28,30 @@ export default function Projects() {
             {p.href && (
               <a
                 href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="absolute top-6 right-6 text-muted hover:text-accent text-lg transition-colors duration-200"
               >
                 ↗
               </a>
             )}
 
+            {/* Number */}
             <div className="text-muted text-[0.65rem] tracking-[0.15em] mb-4">
               {p.num}
             </div>
-            <h3 className="font-syne font-bold text-xl mb-3">{p.title}</h3>
+
+            {/* Title */}
+            <h3 className="font-syne font-bold text-xl mb-3">
+              {t(`${p.key}.title`)}
+            </h3>
+
+            {/* Description */}
             <p className="text-muted text-sm leading-relaxed mb-6">
-              {p.description}
+              {t(`${p.key}.description`)}
             </p>
 
+            {/* Tags */}
             <div className="flex flex-wrap gap-2">
               {p.tags.map((tag) => (
                 <span

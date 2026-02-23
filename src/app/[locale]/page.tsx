@@ -6,6 +6,7 @@ import Experience from "@/components/sections/Experience";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 import RevealObserver from "@/components/ui/RevealObserver";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
 
 export default function Home() {
   return (

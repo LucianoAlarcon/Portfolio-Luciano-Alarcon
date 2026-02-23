@@ -1,13 +1,17 @@
+"use client";
 import { techCategories } from "@/lib/data";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { useTranslations } from "next-intl";
+import { use } from "react";
 
 export default function Experience() {
+  const t = useTranslations("experience");
   return (
     <section
       id="experience"
       className="relative min-h-screen px-8 md:px-16 py-32 bg-surface"
     >
-      <SectionHeader num="01" title="Experiencia" />
+      <SectionHeader num="01" title={t("title")} />
 
       <div className="flex flex-col gap-12">
         {techCategories.map((cat) => (

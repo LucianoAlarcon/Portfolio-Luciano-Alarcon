@@ -1,16 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-const links = [
-  { href: "#hero", label: "Inicio" },
-  { href: "#experience", label: "Experiencia" },
-  { href: "#projects", label: "Proyectos" },
-  { href: "#contact", label: "Contacto" },
-];
+import { use, useEffect, useState } from "react";
+import LanguageSwitcher from "../LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const t = useTranslations("nav");
+
+  const links = [
+    { href: "#hero", label: t("home") },
+    { href: "#experience", label: t("about") },
+    { href: "#projects", label: t("projects") },
+    { href: "#contact", label: t("contact") },
+  ];
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -29,6 +32,7 @@ export default function Navbar() {
       <span className="font-syne font-black text-xl text-accent tracking-tight">
         LUCIANO.ALARCÓN
       </span>
+      <LanguageSwitcher />
       <div className="hidden md:flex gap-10">
         {links.map((l) => (
           <a

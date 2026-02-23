@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Desarrollador Fullstack",
+    "description": "Apasionado por construir productos digitales elegantes y escalables. Especializado en React, Node.js y arquitecturas modernas",
+    "open-to-work": "Disponible para trabajar",
+    "view-projects": "Ver Proyectos",
+    "contact-me": "Contacto",
+    "scroll-to-explore": "Scroll para explorar"
+  },
+  "experience": {
+    "title": "Experiencia"
+  },
+  "projects": {
+    "sectionTitle": "Proyectos",
+    "qiraGlobal": {
+      "title": "E-Commerce Platform - Qira Global",
+      "description": "Plataforma de comercio de productos agricolas con carrito de compras en tiempo real, pagos integrados y panel de administración completo."
+    },
+    "qiraPagos": {
+      "title": "Wallet App - Qira Pagos",
+      "description": "Aplicación de billetera digital para gestionar pagos, con autenticación segura, historial de transacciones y notificaciones en tiempo real."
+    },
+    "aapresid": {
+      "title": "Aapresid – Red de Innovadores",
+      "description": "Plataforma de medios digitales para compartir innovaciones agrícolas, con contenido multimedia, interacción social y análisis de datos."
+    },
+    "m23": {
+      "title": "M23 – Virtual Checkbook",
+      "description": "Aplicación para venta y cotización de cheques, con autenticación segura, integración de pagos y panel de usuario intuitivo."
+    }
+  },
+  "contact": {
+    "sectionTitle": "Contacto",
+    "primary-description-white": "¿Tienes un",
+    "primary-description-green": "proyecto",
+    "primary-description-end": "en mente?",
+    "secondary-description": "Estoy disponible para proyectos freelance, posiciones full-time y colaboraciones. No dudes en escribirme.",
+    "contact": "Contacto",
+    "cv": "Curriculum Vitae",
+    "contactLinks": {
+      "linkedin": "LinkedIn",
+      "email": "Email",
+      "phone": "Teléfono"
+    },
+    "cv-description": "Desarrollador Full Stack",
+    "format": "Formato",
+    "language": "Idioma",
+    "pages": "Páginas",
+    "updated": "Actualizado",
+    "download":"DESCARGAR CV - PDF",
+    "tags": {
+      "profile": "Perfil",
+      "skills": "Habilidades",
+      "experience": "Experiencia",
+      "projects": "Proyectos",
+      "education": "Educación",
+      "languages": "Idiomas"
+    }
+  }
+}

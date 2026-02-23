@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Fullstack Developer",
+    "description": "Passionate about building elegant and scalable digital products. Specialized in React, Node.js, and modern architectures.",
+    "open-to-work": "Open to work",
+    "view-projects": "View Projects",
+    "contact-me": "Contact",
+    "scroll-to-explore": "Scroll to explore"
+  },
+  "experience": {
+    "title": "Experience"
+  },
+  "projects": {
+    "sectionTitle": "Projects",
+    "qiraGlobal": {
+      "title": "E-Commerce Platform - Qira Global",
+      "description": "Agricultural product trading platform with real-time shopping cart, integrated payments, and comprehensive administration panel."
+    },
+    "qiraPagos": {
+      "title": "Wallet App - Qira Pagos",
+      "description": "Digital wallet application for managing payments, with secure authentication, transaction history, and real-time notifications."
+    },
+    "aapresid": {
+      "title": "Aapresid – Red de Innovadores",
+      "description": "Digital media platform for sharing agricultural innovations, with multimedia content, social interaction, and data analysis."
+    },
+    "m23": {
+      "title": "M23 – Virtual Checkbook",
+      "description": "Application for selling and quoting checks, with secure authentication, payment integration, and intuitive user panel."
+    }
+  },
+  "contact": {
+    "sectionTitle": "Contact",
+    "primary-description-white": "Do you have a",
+    "primary-description-green": "project",
+    "primary-description-end": "in mind?",
+    "secondary-description": "I'm available for freelance projects, full-time positions, and collaborations. Don't hesitate to write me.",
+    "contact": "Contact",
+    "cv": "Resume",
+    "contactLinks": {
+      "linkedin": "LinkedIn",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "cv-description": "Full Stack Developer",
+    "format": "Format",
+    "language": "Language",
+    "pages": "Pages",
+    "updated": "Updated",
+    "download":"DOWNLOAD RESUME - PDF",
+    "tags": {
+      "profile": "Profile",
+      "skills": "Skills",
+      "experience": "Experience",
+      "projects": "Projects",
+      "education": "Education",
+      "languages": "Languages"
+    }
+  }
+}

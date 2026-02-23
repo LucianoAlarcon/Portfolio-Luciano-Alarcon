@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { contactLinks, cvInfo, siteConfig } from "@/lib/data";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { useTranslations } from "next-intl";
 
 type Tab = "info" | "cv";
 
 export default function Contact() {
   const [activeTab, setActiveTab] = useState<Tab>("info");
-
+  const t = useTranslations("contact");
   return (
     <section
       id="contact"
@@ -23,7 +24,7 @@ export default function Contact() {
         }}
       />
 
-      <SectionHeader num="03" title="Contacto" />
+      <SectionHeader num="03" title={t("sectionTitle")} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Left — headline */}
@@ -32,15 +33,16 @@ export default function Contact() {
             className="font-syne font-black leading-none tracking-[-0.04em] mb-6"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
           >
-            ¿Tienes un
+            {t("primary-description-white")}
             <br />
-            <span className="text-accent">proyecto</span>
+            <span className="text-accent">
+              {t("primary-description-green")}
+            </span>
             <br />
-            en mente?
+            {t("primary-description-end")}
           </h3>
           <p className="text-muted text-sm leading-relaxed">
-            Estoy disponible para proyectos freelance, posiciones full-time y
-            colaboraciones. No dudes en escribirme.
+            {t("secondary-description")}
           </p>
         </div>
 
@@ -58,7 +60,7 @@ export default function Contact() {
                     : "text-muted border-transparent hover:text-text"
                 }`}
               >
-                {tab === "info" ? "Contacto" : "Curriculum Vitae"}
+                {tab === "info" ? t("contact") : t("cv")}
               </button>
             ))}
           </div>
@@ -79,7 +81,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-[0.68rem] text-muted tracking-widest uppercase mb-0.5">
-                      {link.label}
+                      {t(`contactLinks.${link.label}`)}
                     </div>
                     <div className="text-text text-sm">{link.value}</div>
                   </div>
@@ -100,20 +102,22 @@ export default function Contact() {
                   <div className="font-syne font-bold text-lg mb-1">
                     {cvInfo.title}
                   </div>
-                  <div className="text-muted text-xs">{cvInfo.subtitle}</div>
+                  <div className="text-muted text-xs">
+                    {t("cv-description")}
+                  </div>
                 </div>
                 <div className="flex items-center gap-2 text-accent text-xs border border-accent/30 bg-accent/5 px-3 py-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-dot" />
-                  Actualizado
+                  {t("updated")}
                 </div>
               </div>
 
               {/* Meta */}
               <div className="flex gap-8 py-4 border-t border-b border-[#1e2a38] mb-6 flex-wrap">
                 {[
-                  { label: "Formato", value: cvInfo.format },
-                  { label: "Idioma", value: cvInfo.language },
-                  { label: "Páginas", value: cvInfo.pages },
+                  { label: t("format"), value: cvInfo.format },
+                  { label: t("language"), value: cvInfo.language },
+                  { label: t("pages"), value: cvInfo.pages },
                 ].map((m) => (
                   <div key={m.label} className="flex flex-col gap-1">
                     <span className="text-muted text-[0.65rem] tracking-widest uppercase">
@@ -131,7 +135,7 @@ export default function Contact() {
                     key={s}
                     className="text-[0.68rem] tracking-wide px-3 py-1 border border-[#1e2a38] text-muted"
                   >
-                    {s}
+                    {t(`tags.${s}`)}
                   </span>
                 ))}
               </div>
@@ -145,7 +149,7 @@ export default function Contact() {
                 <span className="group-hover:translate-y-0.5 transition-transform duration-200">
                   ↓
                 </span>
-                Descargar CV — PDF
+                {t("download")}
               </a>
             </div>
           )}
