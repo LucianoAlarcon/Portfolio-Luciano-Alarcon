@@ -34,7 +34,7 @@ src/
 │       └── RevealObserver/index.tsx
 │
 ├── lib/
-│   └── data.ts          ← Todo el contenido del portfolio acá
+│   └── data.ts
 │
 ├── styles/
 │   └── globals.css
@@ -42,9 +42,3 @@ src/
 └── types/
     └── index.ts
 ```
-
-## Personalización
-
-Editá `src/lib/data.ts` para cambiar tu nombre, tecnologías, proyectos y links.
-
-Para el CV: colocá tu archivo en `public/cv-tu-nombre.pdf` y actualizá `cvInfo.downloadPath`.
