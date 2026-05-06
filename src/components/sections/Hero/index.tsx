@@ -1,37 +1,45 @@
 "use client";
 import { siteConfig } from "@/lib/data";
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 
 export default function Hero() {
   const [firstName, ...rest] = siteConfig.name.split(" ");
   const lastName = rest.join(" ") || "Nombre";
   const t = useTranslations("hero");
+  
+  // Memoize style objects to prevent recreation on each render
+  const heroStyles = useMemo(() => ({
+    gridBackground: {
+      backgroundImage:
+        "linear-gradient(#1e2a38 1px, transparent 1px), linear-gradient(90deg, #1e2a38 1px, transparent 1px)",
+      backgroundSize: "60px 60px",
+      maskImage:
+        "radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%)",
+    },
+    glow: {
+      background:
+        "radial-gradient(circle, rgba(0,229,195,0.07) 0%, transparent 70%)",
+    },
+    nameFontSize: "clamp(3.5rem, 8vw, 7rem)",
+  }), []);
 
   return (
     <>
-      <section
-        id="hero"
-        className="relative min-h-screen flex flex-col justify-center items-start px-8 md:px-16 pt-32 pb-16 overflow-hidden"
-      >
+       <section
+         id="hero"
+         className="relative min-h-screen flex flex-col justify-center items-start px-8 md:px-16 pt-[10px] md:pt-32 pb-12 md:pb-16 overflow-hidden"
+       >
         {/* Grid background */}
         <div
           className="absolute inset-0 opacity-30 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(#1e2a38 1px, transparent 1px), linear-gradient(90deg, #1e2a38 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            maskImage:
-              "radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%)",
-          }}
+          style={heroStyles.gridBackground}
         />
 
         {/* Glow */}
         <div
           className="absolute w-[600px] h-[600px] rounded-full pointer-events-none top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(0,229,195,0.07) 0%, transparent 70%)",
-          }}
+          style={heroStyles.glow}
         />
 
         {/* Available badge */}
@@ -44,7 +52,7 @@ export default function Hero() {
         {/* Name */}
         <h1
           className="relative z-10 font-syne font-black leading-[0.95] tracking-[-0.04em] mb-6 opacity-0 animate-fade-up-2"
-          style={{ fontSize: "clamp(3.5rem, 8vw, 7rem)" }}
+          style={{ fontSize: heroStyles.nameFontSize }}
         >
           {firstName}
           <br />

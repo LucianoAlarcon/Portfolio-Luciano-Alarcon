@@ -23,17 +23,22 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-16 py-6 border-b transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-24 py-4 md:py-8 border-b transition-all duration-300 ${
         scrolled
           ? "border-[#1e2a38] bg-[rgba(8,12,16,0.85)] backdrop-blur-md"
           : "border-transparent"
       }`}
     >
-      <span className="font-syne font-black text-xl text-accent tracking-tight">
-        LUCIANO.ALARCÓN
-      </span>
-      <LanguageSwitcher />
-      <div className="hidden md:flex gap-10">
+      <div className="flex w-[50%] items-center gap-4 md:justify-between">
+        <span
+          className="font-syne font-black text-xl text-accent tracking-tight"
+          aria-label="Luciano Alarcón - Portfolio"
+        >
+          LUCIANO.ALARCÓN
+        </span>
+        <LanguageSwitcher />
+      </div>
+      <div className="hidden md:flex gap-16">
         {links.map((l) => (
           <a
             key={l.href}

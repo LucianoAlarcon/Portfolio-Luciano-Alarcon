@@ -6,7 +6,8 @@ const useClickOutside = <T extends HTMLElement | null>(
 ): void => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (ref?.current && !ref?.current.contains(event.target as Node)) {
+      // Check if ref exists and if target is an Element (to avoid target.matches errors)
+      if (ref?.current && event.target instanceof Element && !ref?.current.contains(event.target)) {
         callback();
       }
     };

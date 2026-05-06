@@ -26,7 +26,7 @@ export default function Contact() {
 
       <SectionHeader num="03" title={t("sectionTitle")} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="grid grid-cols-1 gap-16 items-start lg:grid-cols-2">
         {/* Left — headline */}
         <div className="reveal">
           <h3
@@ -48,8 +48,8 @@ export default function Contact() {
 
         {/* Right — tabs */}
         <div className="reveal">
-          {/* Tab buttons */}
-          <div className="flex border-b border-[#1e2a38] mb-8">
+           {/* Tab buttons */}
+           <div className="flex flex-col sm:flex-row border-b border-[#1e2a38] mb-8">
             {(["info", "cv"] as Tab[]).map((tab) => (
               <button
                 key={tab}

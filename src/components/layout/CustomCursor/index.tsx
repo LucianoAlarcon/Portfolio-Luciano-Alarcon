@@ -5,8 +5,17 @@ import { useEffect, useRef } from "react";
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number>(0);
 
   useEffect(() => {
+    // Check if we're on a mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    // If mobile, don't initialize custom cursor
+    if (isMobile) {
+      return;
+    }
+
     let mx = 0,
       my = 0,
       rx = 0,
@@ -26,11 +35,8 @@ export default function CustomCursor() {
       ry += (my - ry) * 0.12;
       ring.style.left = rx + "px";
       ring.style.top = ry + "px";
-      requestAnimationFrame(animate);
+      animationFrameRef.current = requestAnimationFrame(animate);
     };
-
-    document.addEventListener("mousemove", onMove);
-    animate();
 
     const expand = () => {
       dot.style.transform = "translate(-50%,-50%) scale(2)";
@@ -44,14 +50,32 @@ export default function CustomCursor() {
     };
 
     const addListeners = () => {
-      document.querySelectorAll("a, button, [data-cursor]").forEach((el) => {
-        el.addEventListener("mouseenter", expand);
-        el.addEventListener("mouseleave", shrink);
-      });
+      // Use event delegation instead of querying all elements
+      document.addEventListener("mouseenter", (e) => {
+        const target = e.target as Element;
+        if (target && (target.matches && target.matches("a, button, [data-cursor]"))) {
+          expand();
+        }
+      }, true); // Use capture phase to handle nested elements
+      
+      document.addEventListener("mouseleave", (e) => {
+        const target = e.target as Element;
+        if (target && (target.matches && target.matches("a, button, [data-cursor]"))) {
+          shrink();
+        }
+      }, true);
     };
     addListeners();
 
-    return () => document.removeEventListener("mousemove", onMove);
+    document.addEventListener("mousemove", onMove);
+    animate();
+
+    return () => {
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseenter", addListeners, true);
+      document.removeEventListener("mouseleave", addListeners, true);
+      cancelAnimationFrame(animationFrameRef.current);
+    };
   }, []);
 
   return (

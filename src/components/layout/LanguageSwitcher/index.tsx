@@ -37,13 +37,13 @@ export default function SelectLanguage() {
       {open && (
         <div
           ref={ref}
-          className="fade-in bg-primary-foreground absolute top-[50px] flex flex-col gap-2 rounded py-2 ps-2 pe-4 text-black"
+          className="fade-in bg-surface absolute left-0 top-full mt-2 w-44 flex flex-col gap-2 rounded-lg py-2 px-3 border border-border shadow-lg z-50 max-md:w-[50px]"
         >
           {languages.map((lang, index) => (
             <div key={lang.key}>
               <button
                 onClick={() => handleChangeLanguage(lang.key)}
-                className={`flex cursor-pointer items-center gap-2 pe-4 ${
+                className={`flex cursor-pointer items-center gap-2 w-full py-1 ${
                   locale === lang.key ? "font-bold" : ""
                 }`}
               >
@@ -53,11 +53,11 @@ export default function SelectLanguage() {
                   src={`/icons/flags/${lang.key}.svg`}
                   alt="bandera"
                 />
-                <span>{lang.name}</span>
+                <span className="text-white max-md:hidden">{lang.name}</span>
               </button>
 
               {index !== languages.length - 1 && (
-                <hr className="bg-secondary border-secondary" />
+                <hr className="bg-secondary border-secondary max-md:mt-1" />
               )}
             </div>
           ))}
@@ -66,9 +66,15 @@ export default function SelectLanguage() {
 
       <div
         onClick={() => setOpen(!open)}
-        className="flex cursor-pointer gap-3 select-none"
+        className="flex cursor-pointer items-center justify-center gap-2 select-none md:gap-4 w-[52px] h-[52px] flex-shrink-0 bg-surface/20 rounded-md hover:bg-surface/30 transition-colors duration-200 border border-surface/30"
       >
-        <Image src={GlobeIcon} alt="globe" width={20} height={20} />
+        <Image
+          src={GlobeIcon}
+          alt="globe"
+          width={20}
+          height={20}
+          className="mx-auto"
+        />
         <span className="hidden md:block">|</span>
         <span className="hidden md:block">
           {locale === "es" ? "Español" : "English"}

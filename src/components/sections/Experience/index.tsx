@@ -24,8 +24,8 @@ export default function Experience() {
               <div className="flex-1 h-px bg-[#1e2a38]" />
             </div>
 
-            {/* Tech nodes */}
-            <div className="flex flex-wrap gap-4">
+             {/* Tech nodes */}
+             <div className="flex flex-wrap gap-4 sm:gap-6">
               {cat.items.map((item) => (
                 <div
                   key={item.name}
